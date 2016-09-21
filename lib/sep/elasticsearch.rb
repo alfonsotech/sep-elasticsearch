@@ -1,7 +1,7 @@
-require "sep/elasticsearch/version"
+require 'sep/elasticsearch/version'
 
 module Sep
+  # @nodoc
   module Elasticsearch
-    # Your code goes here...
   end
 end
