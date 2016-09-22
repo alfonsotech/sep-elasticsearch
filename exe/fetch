@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'sep'
+
+contents = Sep::Contents.new
+
+contents.fetch
+
+sleep

@@ -1,6 +1,6 @@
 describe Sep::Elasticsearch::Document do
   let(:mock_document) do
-    %Q{
+    %(
     <html>
     <body>
       <div id="preamble">
@@ -28,13 +28,13 @@ describe Sep::Elasticsearch::Document do
       </div>
     </body>
     </html>
-    }
+    )
   end
 
   let(:expected_output) do
     {
       preamble: '\n      \n\n      Zombies in philosophy\n\n      ',
-      main_text: '\n\n      1. the idea of zombies\n\n      \n\n      Descartes held that non-human animals are automata\n\n      2. Zombies and physicalism\n\n      \n\n      Imagine God creating the world and deciding to bring into existence the whole of the\n      physical universe.\n\n      ',
+      main_text: '\n\n      1. the idea of zombies\n\n      \n\n      Descartes held that non-human animals are automata\n\n      2. Zombies and physicalism\n\n      \n\n      Imagine God creating the world and deciding to bring into existence the whole of the\n      physical universe.\n\n      '
     }
   end
 
