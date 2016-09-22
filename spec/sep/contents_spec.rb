@@ -9,7 +9,7 @@ describe Sep::Contents do
 
   describe '#fetch' do
     it 'creates a job for each entry in the SEP body of contents' do
-      expect(Sep::Worker).to receive(:perform).exactly(2087).times
+      expect(Sep::Worker).to receive(:perform_async).exactly(2087).times
 
       subject.fetch
     end

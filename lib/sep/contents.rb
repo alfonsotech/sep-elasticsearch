@@ -26,7 +26,7 @@ module Sep
   class Contents
     def fetch
       to_a.each do |link|
-        Worker.perform link['href']
+        Worker.perform_async link['href']
       end
     end
 
