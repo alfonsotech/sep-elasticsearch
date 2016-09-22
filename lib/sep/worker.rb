@@ -33,7 +33,7 @@ module Sep
     def write_to_disk
       FileUtils.mkdir_p db_path
 
-      File.open(qualified_file_path, 'w'){ |f| f.write doc }
+      File.open(qualified_file_path, 'w') { |f| f.write doc }
     end
 
     def qualified_file_path
