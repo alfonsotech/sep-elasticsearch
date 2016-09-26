@@ -11,6 +11,10 @@ module Sep
         { preamble: preamble, main_text: main_text }
       end
 
+      def header
+        { index: { _index: 'sep-elasticsearch', _type: 'entry' } }
+      end
+
       private
 
       attr_reader :html_string
