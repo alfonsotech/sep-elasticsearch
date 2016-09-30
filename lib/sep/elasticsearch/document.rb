@@ -1,4 +1,6 @@
+require 'base64'
 require 'nokogiri'
+require 'sep/elasticsearch/document_id_helper'
 
 module Sep
   module Elasticsearch
@@ -12,7 +14,11 @@ module Sep
       end
 
       def header
-        { index: { _index: 'sep-elasticsearch', _type: 'entry' } }
+        { index: { _index: 'sep-elasticsearch', _type: 'entry', _id: id } }
+      end
+
+      def id
+        DocumentIdHelper.new(parsed_document).to_s
       end
 
       private

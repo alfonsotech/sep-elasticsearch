@@ -7,6 +7,12 @@ content in Elasticsearch.
 
 Clone this repo to your workstation.
 
+So that your dev machine matches the docker environment, add an entry to your `/etc/hosts` file
+
+```
+sudo echo 'localhost elasticsearch >> /etc/hosts
+```
+
 ## Usage
 
 After cloning the repo, you can start the data ingestion process with

@@ -2,6 +2,17 @@ describe Sep::Elasticsearch::Document do
   let(:mock_document) do
     %(
     <html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noarchive, noodp" />
+    <meta name="citation_title" content="Abduction" />
+    <meta name="citation_author" content="Douven, Igor" />
+    <meta name="citation_publication_date" content="2011/03/09" />
+    <meta name="DC.title" content="Abduction" />
+    <meta name="DC.creator" content="Douven, Igor" />
+    <meta name="DCTERMS.issued" scheme="DCTERMS.W3CDTF" content="2011-03-09" />
+    <meta name="DCTERMS.modified" scheme="DCTERMS.W3CDTF" content="2011-03-09" />
+    </head>
     <body>
       <div id="preamble">
       <p>
@@ -38,7 +49,7 @@ describe Sep::Elasticsearch::Document do
     }
   end
 
-  subject { described_class.new mock_document }
+  subject(:document) { described_class.new mock_document }
 
   it 'models SEP documents as JSON' do
     skip

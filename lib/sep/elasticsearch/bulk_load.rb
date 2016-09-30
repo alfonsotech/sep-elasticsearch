@@ -1,3 +1,5 @@
+require 'active_support/core_ext/array'
+
 module Sep
   module Elasticsearch
     class BulkLoad
@@ -5,8 +7,11 @@ module Sep
         @host = host
       end
 
+      # FIXME!!!
       def run
-        client.bulk body: tuples
+        tuples.in_groups_of(1000, false) do |batch|
+          client.bulk body: batch
+        end
       end
 
       private
@@ -23,7 +28,7 @@ module Sep
       end
 
       def tuples
-        cache.reduce([]) do |tuples, entry|
+        @tuples ||= cache.reduce([]) do |tuples, entry|
           @entry = entry
 
           tuples += [doc.header, doc.as_json]
@@ -33,7 +38,7 @@ module Sep
       def doc
         file = File.read "#{entry}"
 
-        @doc ||= Sep::Elasticsearch::Document.new file
+        Sep::Elasticsearch::Document.new file
       end
     end
   end
